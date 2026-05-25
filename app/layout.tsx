@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
+import { ThemeProvider } from "@mui/material";
+import theme from "./theme";
+import Footer from "../components/Footer";
+import ResponsiveAppBar from "@/components/Navbar";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -24,7 +28,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme} >
+            <ResponsiveAppBar/>
+            {children}
+            <Footer/>
+          </ThemeProvider>
+        </AppRouterCacheProvider>
+        
+      </body>
     </html>
   );
 }
