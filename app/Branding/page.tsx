@@ -76,72 +76,68 @@ export default function BrandingPage() {
                 All Brands
             </Typography>
 
-            <Grid container spacing={3}>
+           <Grid container spacing={3}>
 
-                {brands.map((brand: any) => (
+    {brands.map((brand: any) => (
 
-                    <Grid
-                        item
-                        xs={12}
-                        sm={6}
-                        md={4}
-                        lg={3}
-                        key={brand._id}
+        <Grid
+            size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
+            key={brand._id}
+        >
+
+            <Card
+                sx={{
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    transition: "0.3s",
+                    cursor: "pointer",
+
+                    "&:hover": {
+                        transform: "translateY(-5px)",
+                        boxShadow: 5
+                    }
+                }}
+            >
+
+                <CardMedia
+                    component="img"
+                    image={brand.image}
+                    alt={brand.name}
+                    sx={{
+                        height: 220,
+                        objectFit: "contain",
+                        p: 2,
+                        bgcolor: "#fff"
+                    }}
+                />
+
+                <CardContent
+                    sx={{
+                        textAlign: "center",
+                        borderTop: "1px solid #eee"
+                    }}
+                >
+
+                    <Typography
+                        variant="h6"
+                        component="h3"
+                        sx={{
+                            fontWeight: 600
+                        }}
                     >
+                        {brand.name}
+                    </Typography>
 
-                        <Card
-                            sx={{
-                                height: "100%",
-                                display: "flex",
-                                flexDirection: "column",
-                                transition: "0.3s",
-                                cursor: "pointer",
+                </CardContent>
 
-                                "&:hover": {
-                                    transform: "translateY(-5px)",
-                                    boxShadow: 5
-                                }
-                            }}
-                        >
+            </Card>
 
-                            <CardMedia
-                                component="img"
-                                image={brand.image}
-                                alt={brand.name}
-                                sx={{
-                                    height: 220,
-                                    objectFit: "contain",
-                                    p: 2,
-                                    bgcolor: "#fff"
-                                }}
-                            />
+        </Grid>
 
-                            <CardContent
-                                sx={{
-                                    textAlign: "center",
-                                    borderTop: "1px solid #eee"
-                                }}
-                            >
+    ))}
 
-                                <Typography
-                                    variant="h6"
-                                    component="h3"
-                                    sx={{
-                                        fontWeight: 600
-                                    }}
-                                >
-                                    {brand.name}
-                                </Typography>
-
-                            </CardContent>
-
-                        </Card>
-
-                    </Grid>
-
-                ))}
-
-            </Grid>
+</Grid>
 
         </Container>
     )
