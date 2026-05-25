@@ -12,19 +12,19 @@ export default function ContactUs() {
         </Typography>
 
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <TextField required fullWidth label="Your Name" variant="outlined" />
           </Grid>
 
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <TextField required fullWidth type="email" label="Email Address" variant="outlined" />
           </Grid>
 
-          <Grid item xs={12} container justifyContent="center">
+          <Grid size={{ xs: 12 }} sx={{ justifyContent: "center" }}>
             <TextField required fullWidth multiline rows={4} label="Message" variant="outlined" />
           </Grid>
 
-          <Grid item xs={12} sx={{ textAlign: 'center' }}>
+          <Grid size={{ xs: 12 }} sx={{ textAlign: 'center' }}>
             <Button type="submit" variant="contained" size="large" sx={{ px: 5, py: 1.5, fontWeight: 'bold' }}>
               Send Message
             </Button>
