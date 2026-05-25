@@ -9,7 +9,6 @@ export default function BrandingPage() {
     
     async function getBrands() {
         try {
-            // نادىنا الـ API الخاص بالـ brands هنا 👇
             let { data } = await axios.get('https://ecommerce.routemisr.com/api/v1/brands')
             console.log(data.data)
             setBrands(data.data)
@@ -23,7 +22,6 @@ export default function BrandingPage() {
     useEffect(() => {
         getBrands()
     }, [])
-
 
     if (loading) {
         return (
@@ -39,10 +37,8 @@ export default function BrandingPage() {
                 All Brands
             </Typography>
 
-
             <Grid container spacing={3}>
                 {brands.map((brand: any) => (
-                    
                     <Grid key={brand._id} xs={12} sm={6} md={4} lg={3}>
                         <Card sx={{ 
                             height: '100%', 
@@ -59,13 +55,13 @@ export default function BrandingPage() {
                             />
                             <CardContent sx={{ textAlign: 'center', borderTop: '1px solid #eee' }}>
                                 <Typography variant="h6" component="h3" sx={{ fontWeight: '600' }}>
-                                    {brand.name} {/* اسم البراند */}
+                                    {brand.name}
                                 </Typography>
                             </CardContent>
                         </Card>
                     </Grid>
                 ))}
-            </Grid>
+            </Grid> {/* صلحنا قفلة الـ Grid هنا وبقت تمام ✅ */}
         </Container>
     )
 }
