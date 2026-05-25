@@ -42,8 +42,8 @@ export default function BrandingPage() {
 
             <Grid container spacing={3}>
                 {brands.map((brand: any) => (
-                    // الـ key هنا هو الـ _id الخاص بالبراند
-                    <Grid item key={brand._id} xs={12} sm={6} md={4} lg={3}>
+                    
+                    <Grid key={brand._id} xs={12} sm={6} md={4} lg={3}>
                         <Card sx={{ 
                             height: '100%', 
                             display: 'flex', 
@@ -53,7 +53,7 @@ export default function BrandingPage() {
                         }}>
                             <CardMedia 
                                 component="img" 
-                                image={brand.image} // صورة البراند من الـ API
+                                image={brand.image}
                                 alt={brand.name}
                                 sx={{ height: 200, objectFit: 'contain', p: 2, bgcolor: '#ffffff' }} 
                             />

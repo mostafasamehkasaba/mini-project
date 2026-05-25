@@ -23,13 +23,7 @@ export default function ProductsPage() {
         getProducts()
     }, [])
 
-    if (loading) {
-        return (
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '80vh' }}>
-                <CircularProgress />
-            </Box>
-        )
-    }
+
 
     return (
         <Container sx={{ py: 4 }} maxWidth="xl">
@@ -74,7 +68,7 @@ export default function ProductsPage() {
                                         {product.price} EGP
                                     </Typography>
                                     <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                                        ⭐ {product.ratingsAverage}
+                                        {product.ratingsAverage}
                                     </Typography>
                                 </Box>
                             </CardContent>
