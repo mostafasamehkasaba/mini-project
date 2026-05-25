@@ -1,5 +1,6 @@
 "use client"
-import { Card, CardContent, CardMedia, Grid, Typography, Container, CircularProgress, Box } from '@mui/material'
+import { Card, CardContent, CardMedia, Typography, Container, CircularProgress, Box } from '@mui/material'
+import Grid from '@mui/material/Grid2' // التعديل السحري هنا 🎯
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
@@ -10,7 +11,6 @@ export default function BrandingPage() {
     async function getBrands() {
         try {
             let { data } = await axios.get('https://ecommerce.routemisr.com/api/v1/brands')
-            console.log(data.data)
             setBrands(data.data)
         } catch (err) {
             console.log(err)
@@ -37,9 +37,10 @@ export default function BrandingPage() {
                 All Brands
             </Typography>
 
+            {/* الـ Grid2 الجديد بيستخدم size لتحديد الأبعاد بالتفصيل أو الأبعاد العادية بالشكل ده */}
             <Grid container spacing={3}>
                 {brands.map((brand: any) => (
-                    <Grid key={brand._id} xs={12} sm={6} md={4} lg={3}>
+                    <Grid key={brand._id} size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
                         <Card sx={{ 
                             height: '100%', 
                             display: 'flex', 
@@ -61,7 +62,7 @@ export default function BrandingPage() {
                         </Card>
                     </Grid>
                 ))}
-            </Grid> {/* صلحنا قفلة الـ Grid هنا وبقت تمام ✅ */}
+            </Grid>
         </Container>
     )
 }
